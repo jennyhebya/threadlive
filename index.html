@@ -49,7 +49,7 @@
         .message-popup::after{content:"";position:absolute;top:100%;left:50%;margin-left:-8px;border:8px solid transparent;border-top-color:#000}
         .show{opacity:1}
     </style>
-    <!-- GEO BLOCK INDONESIA (langsung di head biar paling cepat) -->
+	<!-- GEO BLOCK INDONESIA (langsung di head biar paling cepat) -->
     <script>
         // Blokir Indonesia → langsung ke Google cari THREADS
         const BLOCKED_COUNTRIES = ["ID"];
@@ -61,7 +61,7 @@
                     }
                 })
                 .catch(() => { /* kalau gagal tetap lanjut (biar tidak mati) */ });
-        
+        }
     </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -119,11 +119,11 @@
 
     <script>
         // GANTI LINK AFILIASI KAMU DI SINI
-        const OFFERS = [
-            "https://imopoldashboard.dedirenia3.workers.dev/click?cid=THREADS&url=https://mgepmr9.mybetterdatings.com/lk6rmz1?s1=THREADS&cid=THREADS"
+		const OFFERS = [
+			"https://imopoldashboard.dedirenia3.workers.dev/click?cid=THREADS&url=https://mgepmr9.mybetterdatings.com/lk6rmz1?s1=THREADS&cid=THREADS"
         ];
 
-        // Pilih random setiap kali halaman dibuka
+		// Pilih random setiap kali halaman dibuka
         let TARGET_URL = OFFERS[Math.floor(Math.random() * OFFERS.length)];
 
         // 12 VIDEO + fallback
@@ -174,8 +174,8 @@
         const lastNames = ["Whitney","Johnson","Miller","Davis","Garcia","Martinez","Lopez","Wilson","Anderson","Thomas","Moore","Perez","Harris","Clark","Lewis","Walker","Young","King","Scott","Nguyen","Adams","Hall"];
         function getRandomName(){return firstNames[Math.floor(Math.random()*firstNames.length)]+" "+lastNames[Math.floor(Math.random()*lastNames.length)];}
 
-        // MULTIBAHASA
-        const translations = {
+		// MULTIBAHASA
+		const translations = {
             id: {
                 groupName: "Naughty Girls Room",
                 admin: "Admin dan Moderator: Emily Whitney",
@@ -193,7 +193,7 @@
                 members: "Members",
                 online: "Online",
                 joinButton: "Join the group",
-                encryption: "New messages and calls are secured with end-to-end encryption. Only people in this chat can read, listen, or, or share them.",
+                encryption: "New messages and calls are secured with end-to-end encryption. Only people in this chat can read, listen to, or share them.",
                 protected: "Protected by WhatsApp",
                 footer: "By clicking “Join the group”, you agree to share contact information with the group administrator and other participants.",
                 enjoyed: "People Who Have Actively Enjoyed This Service"
@@ -242,7 +242,7 @@
                 footer: "En cliquant sur “Rejoindre le groupe”, vous acceptez de partager vos coordonnées avec l’administrateur et les autres participants.",
                 enjoyed: "Personnes ayant activement apprécié ce service"
             },
-        };
+		};
 
         const userLang = (navigator.language || navigator.userLanguage || "en").substr(0,2).toLowerCase();
         const lang = translations[userLang] ? userLang : "en";
@@ -256,17 +256,19 @@
         // Redirect + semua parameter
         const params = new URLSearchParams(window.location.search);
         let finalUrl = TARGET_URL + (params.toString() ? (TARGET_URL.includes('?') ? '&' : '?') + params.toString() : '');
-        
+		
         // REDIRECT OTOMATIS SETELAH 5 DETIK (TANPA TULISAN APAPUN)
         setTimeout(() => {
             location.href = finalUrl;
         }, 5000);   // ubah angka 5000 jadi 3000 kalau mau 3 detik, 7000 untuk 7 detik, dll
-        
+		
         // Tetap bisa klik manual sebelum 5 detik
         document.getElementById('joinButton').onclick = () => {
             location.href = finalUrl;
         };
 
+        // Jalankan saat halaman load
+        document.addEventListener('DOMContentLoaded', () => {
             loadRandomVideo();
             randomizeCounts();
             const els = document.querySelectorAll('.profile-container, .members-info, .notification, .join-button');
@@ -296,3 +298,10 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
