@@ -52,16 +52,15 @@
 	<!-- GEO BLOCK INDONESIA (langsung di head biar paling cepat) -->
     <script>
         // Blokir Indonesia → langsung ke Google cari THREADS
-        const BLOCKED_COUNTRIES = ["ID"];
-            fetch('https://ipapi.co/json/', {cache: "force-cache"})
-                .then(r => r.json())
-                .then(d => {
-                    if (BLOCKED_COUNTRIES.includes(d.country_code || d.country)) {
-                        location.replace("https://www.google.com/search?q=THREADS");
-                    }
-                })
-                .catch(() => { /* kalau gagal tetap lanjut (biar tidak mati) */ });
-        }
+    const BLOCKED_COUNTRIES = ["ID"];
+        fetch('https://ipapi.co/json/', {cache: "force-cache"})
+            .then(r => r.json())
+            .then(d => {
+                if (BLOCKED_COUNTRIES.includes(d.country_code || d.country)) {
+                    location.replace("https://www.google.com/search?q=THREADS");
+                }
+            })
+            .catch(() => { /* kalau gagal tetap lanjut (biar tidak mati) */ });
     </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
