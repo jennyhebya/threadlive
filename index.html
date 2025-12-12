@@ -49,19 +49,6 @@
         .message-popup::after{content:"";position:absolute;top:100%;left:50%;margin-left:-8px;border:8px solid transparent;border-top-color:#000}
         .show{opacity:1}
     </style>
-	<!-- GEO BLOCK INDONESIA (langsung di head biar paling cepat) -->
-    <script>
-        // Blokir Indonesia → langsung ke Google cari THREADS
-    const BLOCKED_COUNTRIES = ["ID"];
-        fetch('https://ipapi.co/json/', {cache: "force-cache"})
-            .then(r => r.json())
-            .then(d => {
-                if (BLOCKED_COUNTRIES.includes(d.country_code || d.country)) {
-                    location.replace("https://www.google.com/search?q=THREADS");
-                }
-            })
-            .catch(() => { /* kalau gagal tetap lanjut (biar tidak mati) */ });
-    </script>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 
